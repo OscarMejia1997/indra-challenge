@@ -3,7 +3,6 @@ const models = require('../src/vehicle/model.js');
 const handler = require('../src/vehicle/handler.js');
 const {SWAPI_GET_ALL_VEHICLE_URL, SWAPI_GET_VEHICLE_URL} = require('../src/vehicle/apiConfig.js');
 
-
 test('correct field parse',  () => {
 
     const vehicle = {
