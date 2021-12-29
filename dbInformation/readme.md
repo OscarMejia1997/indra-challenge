@@ -1,0 +1,2 @@
+- Create the table t_species with the script of the t_species.sql file.
+- Add the database credentials in the db/config.js (replace).

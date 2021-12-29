@@ -1,0 +1,15 @@
+{
+  
+  "scripts": {
+    "test": "jest"
+  },
+  "dependencies": {
+    "axios": "^0.24.0",
+    "mysql": "^2.18.1",
+    "util": "^0.12.4"
+  },
+  "devDependencies": {
+    "jest": "^27.4.5"
+  }
+  
+}

@@ -1,0 +1,53 @@
+service: indra-challenge
+
+provider:
+  name: aws
+  runtime: nodejs14.x
+  profile: challenge
+  region: us-east-1
+
+functions:
+
+  getVechicle:
+    
+    handler: src/vehicle/handler.listVehicle
+    events:
+
+      - http:
+          method: GET
+          path: /vehicle
+          cors: true
+
+      - http:
+          method: GET
+          cors: true
+          path: /vehicle/{vehicleId}
+          request: 
+            parameters: 
+              paths: 
+                vehicleId: false
+
+  createSpecie:
+    handler: src/specie/handler.createSpecie
+    events:
+
+      - http:
+          method: POST
+          path: /specie/create
+    
+    package:
+      patterns:
+        - '!src/**'
+        - 'src/specie/**'
+        - '!node_modules/**'
+        - 'node_modules/mysql/**'
+        - 'node_modules/util/**'
+        - '!db/**'
+
+  getSaveSpecie:
+    handler: src/specie/handler.getSaveSpecie
+    events:
+
+      - http:
+          method: GET
+          path: /specie/getSaveSpecie
