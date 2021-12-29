@@ -4,7 +4,6 @@ const axios = require('axios');
 const {SWAPI_GET_ALL_VEHICLE_URL, SWAPI_GET_VEHICLE_URL} =  require('./apiConfig.js');
 const {vehicleParse} = require("./model.js");
 
-
 const getUrl = (idVehicle) => {
     return  idVehicle? SWAPI_GET_VEHICLE_URL(idVehicle) : SWAPI_GET_ALL_VEHICLE_URL;
 }
@@ -17,9 +16,6 @@ module.exports.listVehicle =  async (event) => {
     const params = {
         "params": {"format": "json", ...event.queryStringParameters  }
     }
-
-    console.log('URL');
-    console.log(vehicleAPIUrl);
 
     try{
         let data;
@@ -43,10 +39,7 @@ module.exports.listVehicle =  async (event) => {
         };
 
   } catch (error){
-        console.log('ERROR')
-        console.log(error.response.status);
-        console.log(error.response.statusText);
-        
+       
         return {
             'statusCode': error.response.status,
             'body': JSON.stringify( error.response.statusText)
@@ -54,6 +47,5 @@ module.exports.listVehicle =  async (event) => {
        
   }
 };
-
 
 module.exports.getUrl = getUrl;

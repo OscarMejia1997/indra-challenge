@@ -45,8 +45,6 @@ test('correct field parse',  () => {
 
 });
 
-
-
 test('when no pass queryparams get all URL', () => {
     expect(handler.getUrl('')).toBe(SWAPI_GET_ALL_VEHICLE_URL);
 });

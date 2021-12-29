@@ -8,8 +8,7 @@ provider:
 
 functions:
 
-  getVechicle:
-    
+  getVechicle:    
     handler: src/vehicle/handler.listVehicle
     events:
 

@@ -24,12 +24,10 @@ pool.getConnection((err, connection) => {
   }
 
   if (connection) connection.release();
-  console.log('DB is Connected');
 
   return;
 });
 
-// Promisify Pool Querys
 pool.query = promisify(pool.query);
 
 module.exports = pool;

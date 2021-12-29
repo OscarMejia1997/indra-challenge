@@ -1,5 +1,6 @@
 CREATE TABLE `t_species` (
   `id_species` bigint(20) unsigned NOT NULL AUTO_INCREMENT,
+  `name` varchar(255) DEFAULT NULL,
   `average_height` decimal(10,2) DEFAULT NULL,
   `average_lifespan` int(11) DEFAULT NULL,
   `classification` varchar(255) DEFAULT NULL,
@@ -8,13 +9,12 @@ CREATE TABLE `t_species` (
   `hair_colors` varchar(255) DEFAULT NULL,
   `homeworld` varchar(255) DEFAULT NULL,
   `language` varchar(255) DEFAULT NULL,
-  `name` varchar(255) DEFAULT NULL,
   `people` json DEFAULT NULL,
   `films` json DEFAULT NULL,
   `skin_colors` varchar(255) DEFAULT NULL,
   `url` varchar(255) DEFAULT NULL,
-  `timestamp_modified` timestamp(6) NOT NULL,
-  `timestamp_created` timestamp(6) NOT NULL,
+  `timestamp_modified` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6),
+  `timestamp_created` timestamp(6) NOT NULL DEFAULT CURRENT_TIMESTAMP(6) ON UPDATE CURRENT_TIMESTAMP(6),
   PRIMARY KEY (`id_species`),
   UNIQUE KEY `t_species_UN` (`name`),
   KEY `t_species_timestamp_modified_IDX` (`timestamp_modified`) USING BTREE,
@@ -22,4 +22,4 @@ CREATE TABLE `t_species` (
   KEY `t_species_name_IDX` (`name`) USING BTREE,
   KEY `t_species_average_height_IDX` (`average_height`) USING BTREE,
   KEY `t_species_average_lifespan_IDX` (`average_lifespan`) USING BTREE
-) ENGINE=InnoDB DEFAULT CHARSET=utf8
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=utf8

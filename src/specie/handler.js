@@ -1,9 +1,8 @@
 const pool = require('../../db/database.js');
 const {existsSpeciesQuery, insertSpecieQuery, getSpecieQuery} = require('../../db/queries.js');
 
-
 module.exports.createSpecie = exports.handler = async (event, context) => {
-  //prevent timeout from waiting event loop
+
   context.callbackWaitsForEmptyEventLoop = false; 
 
   const body = JSON.parse(event.body);
@@ -24,7 +23,7 @@ module.exports.createSpecie = exports.handler = async (event, context) => {
     };
 
     const response = await pool.query(insertSpecieQuery, newSpecie);
-    console.log(response);
+
     statusCode = 201;
     message = "Created";
   
@@ -42,7 +41,6 @@ module.exports.getSaveSpecie = exports.handler = async (event, context) => {
 
     const response = await pool.query(getSpecieQuery);
 
-    console.log(response);
     return {
         statusCode: 200,
         body: JSON.stringify({response})
